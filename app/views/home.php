@@ -2,15 +2,29 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>Pregramer, by Skayo</title>
 
-		<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
 		<link rel="manifest" href="/manifest.json">
+
+		<meta name="title" content="Pregramer, by Skayo" />
+		<meta name="description" content="Beautiful Social Media Share Previews for your Instagram Posts 📸" />
+
+		<meta property="og:url" content="https://pregramer.link" />
+		<meta property="og:site_name" content="Pregramer" />
+		<meta property="og:title" content="Pregramer, by Skayo" />
+		<meta property="og:description" content="Beautiful Social Media Share Previews for your Instagram Posts 📸" />
+		<meta property="og:image" content="/img/social-preview.png" />
+
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://pregramer.link" />
+		<meta property="twitter:title" content="Pregramer, by Skayo" />
+		<meta property="twitter:description" content="Beautiful Social Media Share Previews for your Instagram Posts 📸" />
+		<meta property="twitter:image" content="/img/social-preview.png" />
 
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 		<style type="text/css">
