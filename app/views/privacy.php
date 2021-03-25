@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<h3 class="branding">&#x1F5BC; Pregramer</h3>
-		
+
 		<h2>Privacy Policy</h2>
 		<p>Your privacy is important to us. It is Pregramer&#39;s policy to respect your privacy and comply with any applicable law and regulation regarding any personal information we may collect about you, including across our website, <a href="https://pregramer.link">https://pregramer.link</a>, and other sites we own and operate. </p>
 		<p>This policy is effective as of 25 March 2021 and was last updated on 25 March 2021. </p>
@@ -28,9 +28,9 @@
 		<h4>Collection and Use of Information</h4>
 		<p>We may collect personal information from you when you do any of the following on our website: </p>
 		<ul>
-		   <li>Use a mobile device or web browser to access our content</li>
-		   <li>Contact us via email, social media, or on any similar technologies</li>
-		   <li>When you mention us on social media</li>
+			<li>Use a mobile device or web browser to access our content</li>
+			<li>Contact us via email, social media, or on any similar technologies</li>
+			<li>When you mention us on social media</li>
 		</ul>
 		<p>We may collect, hold, use, and disclose information for the following purposes, and personal information will not be further processed in a manner that is incompatible with these purposes: </p>
 		<p>Please be aware that we may combine information we collect about you with general information or research data we receive from other trusted sources. </p>
@@ -58,7 +58,6 @@
 		<p>If required by law, we will get your permission or give you the opportunity to opt in to or opt out of, as applicable, any new uses of your personal information. </p>
 		<h3>Contact Us</h3>
 		<p>For any questions or concerns regarding your privacy, you may contact us using the following details: </p>
-		<p>Skayo<br />
-		hello@pregramer.link</p>
+		<p><b>Skayo<br />hello@pregramer.link</b></p>
 	</body>
 </html>
