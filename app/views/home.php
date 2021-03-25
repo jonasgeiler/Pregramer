@@ -14,14 +14,6 @@
 
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 		<style type="text/css">
-			body {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				margin-top: 0;
-				margin-bottom: 0;
-			}
-
 			.branding {
 				margin-bottom: 0;
 			}
@@ -33,22 +25,14 @@
 			}
 
 			.left-col {
-				width: 50%;
-				height: 100vh;
-				margin-right: 2rem;
+				min-height: 100vh;
 				display: flex;
 				flex-direction: column;
-				justify-content: center;
 			}
 
 			.right-col {
-				width: 50%;
-				height: 100vh;
-				margin-left: 2rem;
 				display: flex;
 				flex-direction: column;
-				justify-content: center;
-				align-items: center;
 			}
 
 			#result {
@@ -75,6 +59,31 @@
 				display: inline-block;
 				transform: scale(1.3);
 			}
+
+			@media (min-width: 768px) {
+				body {
+					margin-top: 0;
+					margin-bottom: 0;
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-items: center;
+				}
+
+				.left-col {
+					width: 50%;
+					margin-right: 2rem;
+					justify-content: center;
+				}
+
+				.right-col {
+					width: 50%;
+					height: 100vh;
+					margin-left: 2rem;
+					justify-content: center;
+					align-items: center;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -100,12 +109,12 @@
 		<div class="right-col">
 			<div>
 				<p>Before... &#x1F928;</p>
-				<blockquote class="twitter-tweet" data-dnt="true" data-theme="light"><p lang="de" dir="ltr">Find ich auch</p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1374383623500034055?ref_src=twsrc%5Etfw">March 23, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				<blockquote class="twitter-tweet" data-dnt="true"><p lang="und" dir="ltr"><a href="https://t.co/cyRUfgo1Sr">https://t.co/cyRUfgo1Sr</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1375037477522702336?ref_src=twsrc%5Etfw">March 25, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 			</div>
 
 			<div>
 				<p style="margin-top: 2rem;">After... &#x1F60D;</p>
-				<blockquote class="twitter-tweet" data-dnt="true" data-theme="light"><p lang="de" dir="ltr">Find ich auch</p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1374383623500034055?ref_src=twsrc%5Etfw">March 23, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				<blockquote class="twitter-tweet" data-dnt="true"><p lang="und" dir="ltr"><a href="https://t.co/qn1bDDKP2r">https://t.co/qn1bDDKP2r</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1375037222777454593?ref_src=twsrc%5Etfw">March 25, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 			</div>
 		</div>
 
