@@ -64,7 +64,7 @@
 		<meta property="twitter:image" content="<?= $media['imageHighResolutionUrl'] ?>" />
 		<?php if ($media['type'] == 'video'): ?>
 			<meta property="twitter:card" content="player" />
-			<meta property="twitter:player" content="<?= $embed ?>" />
+			<meta property="twitter:player" content="<?= $url ?>embed" />
 			<meta property="twitter:player:width" content="612" />
 			<meta property="twitter:player:height" content="710" />
 			<meta property="twitter:player:stream" content="<?= $media['videoStandardResolutionUrl'] ?>" />
