@@ -60,6 +60,10 @@
 				transform: scale(1.3);
 			}
 
+			.input-error {
+				box-shadow: 0 0 0 2px #ef4444 !important;
+			}
+
 			footer {
 				text-align: center;
 			}
@@ -103,7 +107,7 @@
 				<h1 class="title">Beautiful Social Media Share Previews for your Instagram Posts.</h1>
 
 				<label for="input-link">Paste Instagram Link:</label>
-				<input id="input-link" id="input-link" type="url" placeholder="https://www.instagram.com/p/..." />
+				<input id="input-link" type="url" placeholder="https://www.instagram.com/p/..." />
 
 				<div id="result" style="display: none">
 					<span id="result-arrow">&#8595;</span>
@@ -147,12 +151,32 @@
 			let result = '';
 
 			inputLink.addEventListener('input', function () {
-				const url = new URL(this.value);
+				if (inputLink.classList.contains('input-error')) {
+					inputLink.classList.remove('input-error');
+				}
 
-				if (url.pathname.startsWith('/p/')) {
+				if (resultContainer.style.display !== 'none') {
+					resultContainer.style.display = 'none';
+				}
+
+				if (this.value.trim() === '') return;
+				console.log(this.value);
+
+				try {
+					const url = new URL(this.value);
+
+					if (!url.hostname.endsWith('instagram.com') || !url.pathname.startsWith('/p/')) {
+						inputLink.classList.add('input-error');
+						resultContainer.style.display = 'none';
+						return;
+					}
+
 					result = pregramerUrl + url.pathname.slice(3, url.pathname.length - (url.pathname.endsWith('/') ? 1 : 0));
 					resultLink.value = result;
 					resultContainer.style.display = null;
+				} catch (e) {
+					inputLink.classList.add('input-error');
+					resultContainer.style.display = 'none';
 				}
 			});
 
