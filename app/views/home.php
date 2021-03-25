@@ -60,10 +60,16 @@
 				transform: scale(1.3);
 			}
 
+			footer {
+				text-align: center;
+			}
+
 			@media (min-width: 768px) {
 				body {
 					margin-top: 0;
-					margin-bottom: 0;
+				}
+
+				main {
 					display: flex;
 					flex-direction: row;
 					justify-content: center;
@@ -83,40 +89,49 @@
 					justify-content: center;
 					align-items: center;
 				}
+
+				footer {
+					margin-top: 0 !important;
+				}
 			}
 		</style>
 	</head>
 	<body>
-		<div class="left-col">
-			<h2 class="branding">&#x1F5BC; Pregramer</h2>
-			<h1 class="title">Beautiful Social Media Share Previews for your Instagram Posts.</h1>
+		<main>
+			<div class="left-col">
+				<h2 class="branding">&#x1F5BC; Pregramer</h2>
+				<h1 class="title">Beautiful Social Media Share Previews for your Instagram Posts.</h1>
 
-			<label for="input-link">Paste Instagram Link:</label>
-			<input id="input-link" id="input-link" type="url" placeholder="https://www.instagram.com/p/..." />
+				<label for="input-link">Paste Instagram Link:</label>
+				<input id="input-link" id="input-link" type="url" placeholder="https://www.instagram.com/p/..." />
 
-			<div id="result" style="display: none">
-				<span id="result-arrow">&#8595;</span>
+				<div id="result" style="display: none">
+					<span id="result-arrow">&#8595;</span>
 
-				<label for="result-link">Your Pregramer Link:</label>
-				<input id="result-link" type="url" readonly />
+					<label for="result-link">Your Pregramer Link:</label>
+					<input id="result-link" type="url" readonly />
 
-				<div>
-					<button id="copy-button"><span id="copy-button-feedback"></span> Copy to clipboard</button>
+					<div>
+						<button id="copy-button"><span id="copy-button-feedback"></span> Copy to clipboard</button>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="right-col">
-			<div>
-				<p>Before... &#x1F928;</p>
-				<blockquote class="twitter-tweet" data-dnt="true"><p lang="und" dir="ltr"><a href="https://t.co/cyRUfgo1Sr">https://t.co/cyRUfgo1Sr</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1375037477522702336?ref_src=twsrc%5Etfw">March 25, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-			</div>
+			<div class="right-col">
+				<div>
+					<p>Before... &#x1F928;</p>
+					<blockquote class="twitter-tweet" data-dnt="true"><p lang="und" dir="ltr"><a href="https://t.co/cyRUfgo1Sr">https://t.co/cyRUfgo1Sr</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1375037477522702336?ref_src=twsrc%5Etfw">March 25, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+				</div>
 
-			<div>
-				<p style="margin-top: 2rem;">After... &#x1F60D;</p>
-				<blockquote class="twitter-tweet" data-dnt="true"><p lang="und" dir="ltr"><a href="https://t.co/qn1bDDKP2r">https://t.co/qn1bDDKP2r</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1375037222777454593?ref_src=twsrc%5Etfw">March 25, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+				<div>
+					<p style="margin-top: 2rem;">After... &#x1F60D;</p>
+					<blockquote class="twitter-tweet" data-dnt="true"><p lang="und" dir="ltr"><a href="https://t.co/qn1bDDKP2r">https://t.co/qn1bDDKP2r</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1375037222777454593?ref_src=twsrc%5Etfw">March 25, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+				</div>
 			</div>
-		</div>
+		</main>
+		<footer class="footer">
+			<a href="/privacy">Privacy Policy</a>
+		</footer>
 
 		<script type="text/javascript">
 			const inputLink = document.getElementById('input-link');
