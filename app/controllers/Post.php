@@ -32,9 +32,4 @@ class Post {
 
 		Flight::render('post');
 	}
-
-
-	private static function getAccessToken() {
-		return file_get_contents(__DIR__ . '/../../access_token.txt');
-	}
 }
