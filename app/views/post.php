@@ -89,6 +89,10 @@
 				align-items: center;
 			}
 
+			.header {
+				text-align: center;
+			}
+
 			.instagram-media {
 				max-width: 540px;
 				width: 99.375%;
@@ -98,7 +102,7 @@
 		</style>
 	</head>
 	<body>
-		<div>
+		<div class="header">
 			<h1>&#x1F5BC; Pregramer</h1>
 			<p>Redirecting you to Instagram...</p>
 		</div>
