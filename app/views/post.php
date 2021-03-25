@@ -99,7 +99,7 @@
 	</head>
 	<body>
 		<div>
-			<h1>&#x1F5BC; InstaPrev</h1>
+			<h1>&#x1F5BC; Pregramer</h1>
 			<p>Redirecting you to Instagram...</p>
 		</div>
 		

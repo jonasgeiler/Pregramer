@@ -1,5 +1,5 @@
 {
-    "name": "skayo/instaprev",
+    "name": "skayo/pregramer",
     "description": "Beautiful Social Media Share Previews for your Instagram Posts",
     "authors": [
         {
@@ -13,5 +13,5 @@
         "espresso-dev/instagram-basic-display-php": "^1.1"
     },
     "license": "MIT",
-    "homepage": "https://github.com/Skayo/InstaPrev"
+    "homepage": "https://github.com/Skayo/Pregramer"
 }

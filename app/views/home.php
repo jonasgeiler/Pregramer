@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>InstaPrev, by Skayo</title>
+		<title>Pregramer, by Skayo</title>
 
 		<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
@@ -88,7 +88,7 @@
 	</head>
 	<body>
 		<div class="left-col">
-			<h2 class="branding">&#x1F5BC; InstaPrev</h2>
+			<h2 class="branding">&#x1F5BC; Pregramer</h2>
 			<h1 class="title">Beautiful Social Media Share Previews for your Instagram Posts.</h1>
 
 			<label for="input-link">Paste Instagram Link:</label>
@@ -97,7 +97,7 @@
 			<div id="result" style="display: none">
 				<span id="result-arrow">&#8595;</span>
 
-				<label for="result-link">Your InstaPrev Link:</label>
+				<label for="result-link">Your Pregramer Link:</label>
 				<input id="result-link" type="url" readonly />
 
 				<div>
@@ -127,7 +127,7 @@
 			const copyButton = document.getElementById('copy-button');
 			const copyButtonFeedback = document.getElementById('copy-button-feedback');
 
-			const instaPrevUrl = new URL(location.href).href;
+			const pregramerUrl = new URL(location.href).href;
 
 			let result = '';
 
@@ -135,7 +135,7 @@
 				const url = new URL(this.value);
 
 				if (url.pathname.startsWith('/p/')) {
-					result = instaPrevUrl + url.pathname.slice(3, url.pathname.length - (url.pathname.endsWith('/') ? 1 : 0));
+					result = pregramerUrl + url.pathname.slice(3, url.pathname.length - (url.pathname.endsWith('/') ? 1 : 0));
 					resultLink.value = result;
 					resultContainer.style.display = null;
 				}
