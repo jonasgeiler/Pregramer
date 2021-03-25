@@ -147,7 +147,10 @@
 				</div>
 			</div>
 		</main>
+		
 		<footer class="footer">
+			<span>Made with &#x2764; by <a href="https://skayo.dev" target="_blank">Skayo</a>
+			&bull;
 			<a href="/privacy">Privacy Policy</a>
 		</footer>
 
