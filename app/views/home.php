@@ -140,12 +140,12 @@
 			<div class="right-col">
 				<div>
 					<p>Before... &#x1F928;</p>
-					<blockquote class="twitter-tweet" data-dnt="true"><p lang="und" dir="ltr"><a href="https://t.co/cyRUfgo1Sr">https://t.co/cyRUfgo1Sr</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1375037477522702336?ref_src=twsrc%5Etfw">March 25, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+					<blockquote class="twitter-tweet" data-dnt="true"><p lang="und" dir="ltr"><a href="https://t.co/cyRUfgo1Sr">https://t.co/cyRUfgo1Sr</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1375037477522702336?ref_src=twsrc%5Etfw">March 25, 2021</a></blockquote>
 				</div>
 
 				<div>
 					<p style="margin-top: 2rem;">After... &#x1F60D;</p>
-					<blockquote class="twitter-tweet" data-dnt="true"><p lang="und" dir="ltr"><a href="https://t.co/Y8xLp6XgJ1">https://t.co/Y8xLp6XgJ1</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1375211692171350020?ref_src=twsrc%5Etfw">March 25, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+					<blockquote class="twitter-tweet" data-dnt="true"><p lang="und" dir="ltr"><a href="https://t.co/Y8xLp6XgJ1">https://t.co/Y8xLp6XgJ1</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1375211692171350020?ref_src=twsrc%5Etfw">March 25, 2021</a></blockquote>
 				</div>
 			</div>
 		</main>
@@ -156,6 +156,7 @@
 			<a href="/privacy">Privacy Policy</a>
 		</footer>
 
+		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 		<script type="text/javascript">
 			const inputLink = document.getElementById('input-link');
 
