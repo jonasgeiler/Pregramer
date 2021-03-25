@@ -39,9 +39,9 @@
 			}
 
 			.left-col {
-				min-height: 100vh;
 				display: flex;
 				flex-direction: column;
+				margin-bottom: 3rem;
 			}
 
 			.right-col {
@@ -96,13 +96,15 @@
 
 				.left-col {
 					width: 50%;
+					min-height: 100vh;
 					margin-right: 2rem;
+					margin-bottom: 0;
 					justify-content: center;
 				}
 
 				.right-col {
 					width: 50%;
-					height: 100vh;
+					min-height: 100vh;
 					margin-left: 2rem;
 					justify-content: center;
 					align-items: center;
@@ -147,7 +149,7 @@
 				</div>
 			</div>
 		</main>
-		
+
 		<footer class="footer">
 			<span>Made with &#x2764; by <a href="https://skayo.dev" target="_blank">Skayo</a>
 			&bull;
