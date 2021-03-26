@@ -19,7 +19,7 @@
 		<meta property="og:site_name" content="Pregramer" />
 		<meta property="og:title" content="Privacy Policy - Pregramer, by Skayo" />
 		<meta property="og:description" content="Privacy Policy for Pregramer" />
-		<meta property="og:image" content="/img/social-preview.png" />
+		<meta property="og:image" content="https://pregramer.link/img/social-preview.png" />
 
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:url" content="https://pregramer.link/privacy" />
