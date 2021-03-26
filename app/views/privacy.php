@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,6 +25,7 @@
 		<meta name="twitter:url" content="https://pregramer.link/privacy" />
 		<meta name="twitter:title" content="Privacy Policy - Pregramer, by Skayo" />
 		<meta name="twitter:description" content="Privacy Policy for Pregramer" />
+		<meta name="twitter:image" content="https://pregramer.link/img/social-preview.png" />
 
 		<script async defer data-domain="pregramer.link" src="https://analytics.skayo.dev/js/plausible.js"></script>
 
