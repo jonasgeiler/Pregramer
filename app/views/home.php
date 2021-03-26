@@ -26,6 +26,8 @@
 		<meta property="twitter:description" content="Beautiful Social Media Share Previews for your Instagram Posts 📸" />
 		<meta property="twitter:image" content="/img/social-preview.png" />
 
+		<script async defer data-domain="pregramer.link" src="https://analytics.skayo.dev/js/plausible.js"></script>
+
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 		<style type="text/css">
 			.branding {

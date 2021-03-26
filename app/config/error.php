@@ -13,7 +13,7 @@ function getErrorPage ($title, $code, $message, $error = null) {
 		Flight::view()->set('error', $error);
 	}
 
-	Flight::render('error');
+	Flight::render('_error');
 
 	return ob_get_clean();
 }
