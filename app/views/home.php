@@ -19,13 +19,13 @@
 		<meta property="og:site_name" content="Pregramer" />
 		<meta property="og:title" content="Pregramer, by Skayo" />
 		<meta property="og:description" content="Beautiful Social Media Share Previews for your Instagram Posts 📸" />
-		<meta property="og:image" content="/img/social-preview.png" />
+		<meta property="og:image" content="https://pregramer.link/img/social-preview.png" />
 
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:url" content="https://pregramer.link" />
 		<meta name="twitter:title" content="Pregramer, by Skayo" />
 		<meta name="twitter:description" content="Beautiful Social Media Share Previews for your Instagram Posts 📸" />
-		<meta name="twitter:image" content="/img/social-preview.png" />
+		<meta name="twitter:image" content="https://pregramer.link/img/social-preview.png" />
 
 		<script async defer data-domain="pregramer.link" src="https://analytics.skayo.dev/js/plausible.js"></script>
 
