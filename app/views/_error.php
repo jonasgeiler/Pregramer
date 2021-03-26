@@ -29,6 +29,7 @@
 
 			.message {
 				color: var(--text-muted);
+				text-align: center;
 			}
 
 			.error {
