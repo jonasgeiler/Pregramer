@@ -1,6 +1,7 @@
 <?php
 
 use InstagramScraper\Instagram;
+use InstagramScraper\Exception\InstagramNotFoundException;
 use Phpfastcache\Helper\Psr16Adapter;
 use Phpfastcache\Config\ConfigurationOption;
 use GuzzleHttp\Client;
@@ -14,19 +15,25 @@ class Post {
 		$cacheKey = md5($shortCode);
 
 		$media = $cache->get($cacheKey);
+		$mediaUrl = "https://www.instagram.com/p/$shortCode/";
 
 		if (!$media) {
 			$instagram = Instagram::withCredentials(new Client(), $_ENV['INSTAGRAM_USERNAME'], $_ENV['INSTAGRAM_PASSWORD'], $cache);
 			$instagram->login();
-			$instagram->saveSession();
 
-			$media = $instagram->getMediaByCode($shortCode);
+			try {
+				$media = $instagram->getMediaByUrl($mediaUrl);
+			} catch (InstagramNotFoundException $e) {
+				Flight::notFound('Post does not exist or account is private');
+				return;
+			}
+
 			$cache->set($cacheKey, $media, 604800); // expire in a week
 		}
 
 		Flight::view()->set('media', $media);
 
-		Flight::view()->set('url', "https://www.instagram.com/p/$shortCode/");
+		Flight::view()->set('url', $mediaUrl);
 		Flight::view()->set('title', "{$media['owner']['fullName']} on Instagram: “{$media['caption']}”");
 		Flight::view()->set('description', "{$media['likesCount']} Likes, {$media['commentsCount']} Comments - {$media['owner']['fullName']} (@{$media['owner']['username']}) on Instagram: “{$media['caption']}”");
 

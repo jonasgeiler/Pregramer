@@ -8,7 +8,10 @@ function getErrorPage ($title, $code, $message, $error = null) {
 	Flight::view()->set('activePage', '');
 	Flight::view()->set('code', $code);
 	Flight::view()->set('message', $message);
-	if ($error) Flight::view()->set('error', $error);
+
+	if ($error && Flight::get('env') !== 'production') {
+		Flight::view()->set('error', $error);
+	}
 
 	Flight::render('error');
 
