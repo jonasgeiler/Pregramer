@@ -14,6 +14,7 @@
 		<meta name="title" content="Pregramer, by Skayo" />
 		<meta name="description" content="Beautiful Social Media Share Previews for your Instagram Posts 📸" />
 
+		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://pregramer.link" />
 		<meta property="og:site_name" content="Pregramer" />
 		<meta property="og:title" content="Pregramer, by Skayo" />
