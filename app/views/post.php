@@ -57,21 +57,21 @@
 		<?php endif; ?>
 
 		<!-- Twitter -->
-		<meta property="twitter:url" content="<?= $url ?>" />
-		<meta property="twitter:site" content="@instagram" />
-		<meta property="twitter:title" content="<?= $title ?>" />
-		<meta property="twitter:description" content="<?= $description ?>" />
-		<meta property="twitter:image" content="<?= $media['imageHighResolutionUrl'] ?>" />
+		<meta name="twitter:url" content="<?= $url ?>" />
+		<meta name="twitter:site" content="@instagram" />
+		<meta name="twitter:title" content="<?= $title ?>" />
+		<meta name="twitter:description" content="<?= $description ?>" />
+		<meta name="twitter:image" content="<?= $media['imageHighResolutionUrl'] ?>" />
 		<?php if ($media['type'] == 'video'): ?>
-			<meta property="twitter:card" content="player" />
-			<meta property="twitter:player" content="<?= $url ?>embed" />
-			<meta property="twitter:player:width" content="612" />
-			<meta property="twitter:player:height" content="710" />
-			<meta property="twitter:player:stream" content="<?= $media['videoStandardResolutionUrl'] ?>" />
+			<meta name="twitter:card" content="player" />
+			<meta name="twitter:player" content="<?= $url ?>embed" />
+			<meta name="twitter:player:width" content="612" />
+			<meta name="twitter:player:height" content="710" />
+			<meta name="twitter:player:stream" content="<?= $media['videoStandardResolutionUrl'] ?>" />
 		<?php else: ?>
-			<meta property="twitter:card" content="summary_large_image" />
+			<meta name="twitter:card" content="summary_large_image" />
 			<?php if ($media['type'] == 'image'): ?>
-				<meta property="twitter:image:alt" content="<?= $media['altText'] ?>" />
+				<meta name="twitter:image:alt" content="<?= $media['altText'] ?>" />
 			<?php endif; ?>
 		<?php endif; ?>
 

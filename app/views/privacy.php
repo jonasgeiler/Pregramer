@@ -12,18 +12,19 @@
 		<link rel="manifest" href="/manifest.json">
 
 		<meta name="title" content="Privacy Policy - Pregramer, by Skayo" />
+		<meta name="description" content="Privacy Policy for Pregramer" />
 
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://pregramer.link/privacy" />
 		<meta property="og:site_name" content="Pregramer" />
 		<meta property="og:title" content="Privacy Policy - Pregramer, by Skayo" />
+		<meta property="og:description" content="Privacy Policy for Pregramer" />
 		<meta property="og:image" content="/img/social-preview.png" />
 
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="https://pregramer.link" />
-		<meta property="twitter:title" content="Pregramer, by Skayo" />
-		<meta property="twitter:description" content="Beautiful Social Media Share Previews for your Instagram Posts 📸" />
-		<meta property="twitter:image" content="/img/social-preview.png" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:url" content="https://pregramer.link/privacy" />
+		<meta name="twitter:title" content="Privacy Policy - Pregramer, by Skayo" />
+		<meta name="twitter:description" content="Privacy Policy for Pregramer" />
 
 		<script async defer data-domain="pregramer.link" src="https://analytics.skayo.dev/js/plausible.js"></script>
 
