@@ -14,13 +14,14 @@ class Post {
 		]));
 		$cacheKey = md5($shortCode);
 
+		$mediaUrl = "https://www.instagram.com/p/$shortCode/";
+		
 		if (self::isHuman($cache)) {
 			Flight::redirect($mediaUrl, 301);
 			return;
 		}
 
 		$media = $cache->get($cacheKey);
-		$mediaUrl = "https://www.instagram.com/p/$shortCode/";
 
 		if (!$media) {
 			$instagram = Instagram::withCredentials(new Client(), $_ENV['INSTAGRAM_USERNAME'], $_ENV['INSTAGRAM_PASSWORD'], $cache);
