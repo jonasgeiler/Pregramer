@@ -37,10 +37,17 @@ class Post {
 		}
 
 		Flight::view()->set('media', $media);
-
 		Flight::view()->set('url', $mediaUrl);
-		Flight::view()->set('title', "{$media['owner']['fullName']} on Instagram: “{$media['caption']}”");
-		Flight::view()->set('description', "{$media['likesCount']} Likes, {$media['commentsCount']} Comments - {$media['owner']['fullName']} (@{$media['owner']['username']}) on Instagram: “{$media['caption']}”");
+
+		$titleName = $media['owner']['fullName'] ?: "@{$media['owner']['username']}";
+		$descriptionName = ($media['owner']['fullName'] ? "{$media['owner']['fullName']} (@{$media['owner']['username']})" : "@{$media['owner']['username']}");
+
+		$title = $media['caption'] ? "$titleName on Instagram: “{$media['caption']}”" : "Instagram post by $titleName";
+		$description = "{$media['likesCount']} Likes, {$media['commentsCount']} Comments - $descriptionName on Instagram";
+		if ($media['caption']) $description .= ": “{$media['caption']}”";
+
+		Flight::view()->set('title', $title);
+		Flight::view()->set('description', $description);
 
 		Flight::render('post');
 	}
