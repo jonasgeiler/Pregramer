@@ -12,15 +12,15 @@ class Post {
 			'path' => Flight::get('cache.path'),
 			'defaultTtl' => 4320000 // expire in 50 days by default
 		]));
-		$cacheKey = md5($shortCode);
 
 		$mediaUrl = "https://www.instagram.com/p/$shortCode/";
-		
+
 		if (self::isHuman($cache)) {
 			Flight::redirect($mediaUrl, 301);
 			return;
 		}
 
+		$cacheKey = md5($shortCode);
 		$media = $cache->get($cacheKey);
 
 		if (!$media) {
@@ -56,8 +56,8 @@ class Post {
 	private static function isHuman($cache) {
 		$userAgent = $_SERVER['HTTP_USER_AGENT'];
 		$cacheKey = md5($userAgent);
-
 		$isHuman = $cache->get($cacheKey);
+
 		if ($isHuman !== null) return $isHuman;
 
 		$browsers = require __DIR__ . '/../helpers/browsers.php';
