@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Helpers\Constants;
 use Flight;
 use GuzzleHttp\Client;
 use InstagramScraper\Exception\InstagramNotFoundException;
 use InstagramScraper\Instagram;
 use Phpfastcache\Config\ConfigurationOption;
 use Phpfastcache\Helper\Psr16Adapter;
-use App\Helpers\Constants;
 
 class Post {
 
@@ -17,28 +17,28 @@ class Post {
 	 * @return void
 	 */
 	public static function show($shortCode) {
-		$cache = new Psr16Adapter('Files', new ConfigurationOption([
+		Flight::register('cache', Psr16Adapter::class, ['Files', new ConfigurationOption([
 			'path' => Flight::get('cache.path'),
 			'defaultTtl' => Constants::EXPIRE_CREDENTIALS,
-		]));
+		])]);
 
 		$mediaUrl = "https://www.instagram.com/p/$shortCode/";
 
-		if (static::isHuman($cache)) {
+		if (static::isHuman()) {
 			Flight::redirect($mediaUrl, 301);
 
 			return;
 		}
 
 		$cacheKey = md5($shortCode);
-		$media = $cache->get($cacheKey);
+		$media = Flight::cache()->get($cacheKey);
 
 		if (!$media) {
 			$instagram = Instagram::withCredentials(
 				new Client(),
 				$_ENV['INSTAGRAM_USERNAME'],
 				$_ENV['INSTAGRAM_PASSWORD'],
-				$cache
+				Flight::cache()
 			);
 			$instagram->login();
 
@@ -50,7 +50,7 @@ class Post {
 				return;
 			}
 
-			$cache->set($cacheKey, $media, Constants::EXPIRE_MEDIA);
+			Flight::cache()->set($cacheKey, $media, Constants::EXPIRE_MEDIA);
 		}
 
 		Flight::view()->set('media', $media);
@@ -73,13 +73,12 @@ class Post {
 	}
 
 	/**
-	 * @param \Phpfastcache\Helper\Psr16Adapter $cache
 	 * @return bool
 	 */
-	private static function isHuman($cache) {
+	private static function isHuman() {
 		$userAgent = $_SERVER['HTTP_USER_AGENT'];
 		$cacheKey = md5($userAgent);
-		$isHuman = $cache->get($cacheKey);
+		$isHuman = Flight::cache()->get($cacheKey);
 
 		if ($isHuman !== null) {
 			return $isHuman;
@@ -88,7 +87,7 @@ class Post {
 		$browserInfo = get_browser($userAgent, true);
 		$isHuman = in_array($browserInfo['browser'], Constants::BROWSERS);
 
-		$cache->set($cacheKey, $isHuman, Constants::EXPIRE_HUMAN_CHECK);
+		Flight::cache()->set($cacheKey, $isHuman, Constants::EXPIRE_HUMAN_CHECK);
 
 		return $isHuman;
 	}
