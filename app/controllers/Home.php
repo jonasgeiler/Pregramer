@@ -1,6 +1,6 @@
 <?php
 
-namespace Pregramer\Controllers;
+namespace App\Controllers;
 
 use Flight;
 
@@ -10,7 +10,7 @@ class Home {
 	 * @return void
 	 */
 	public static function index() {
-		Flight::render('home');
+		phpinfo();//Flight::render('home');
 	}
 
 }

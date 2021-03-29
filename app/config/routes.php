@@ -1,9 +1,9 @@
 <?php
 
-use Pregramer\Controllers\Error;
-use Pregramer\Controllers\Home;
-use Pregramer\Controllers\Post;
-use Pregramer\Controllers\Privacy;
+use App\Controllers\Error;
+use App\Controllers\Home;
+use App\Controllers\Post;
+use App\Controllers\Privacy;
 
 Flight::route('GET /', [Home::class, 'index']);
 Flight::route('GET /privacy', [Privacy::class, 'index']);

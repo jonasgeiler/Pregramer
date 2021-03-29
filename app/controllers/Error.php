@@ -1,6 +1,6 @@
 <?php
 
-namespace Pregramer\Controllers;
+namespace App\Controllers;
 
 use Flight;
 use flight\net\Response;

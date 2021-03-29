@@ -1,6 +1,6 @@
 <?php
 
-namespace Pregramer\Helpers;
+namespace App\Helpers;
 
 class Constants {
 
