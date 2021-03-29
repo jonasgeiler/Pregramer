@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-          "Pregramer\\": "app/"
+          "App\\": "app/"
         }
     },
     "require": {

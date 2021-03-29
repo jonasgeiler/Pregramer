@@ -4,13 +4,13 @@ namespace App\Controllers;
 
 use Flight;
 
-class Home {
+class Privacy {
 
 	/**
 	 * @return void
 	 */
 	public static function index() {
-		Flight::render('home');
+		Flight::render('privacy');
 	}
 
 }
