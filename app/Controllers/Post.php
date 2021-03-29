@@ -8,7 +8,7 @@ use InstagramScraper\Exception\InstagramNotFoundException;
 use InstagramScraper\Instagram;
 use Phpfastcache\Config\ConfigurationOption;
 use Phpfastcache\Helper\Psr16Adapter;
-use Pregramer\Helpers\Constants;
+use App\Helpers\Constants;
 
 class Post {
 

@@ -7,6 +7,8 @@ Flight::set('env', $_ENV['ENV']);
 
 if (Flight::get('env') === 'production') {
 	ini_set('error_log', __DIR__ . '/../storage/logs/' . date('Y-m-d') . '.txt');
+
+	error_reporting(0);
 	ini_set('display_errors', 0);
 
 	Flight::set('log_errors', true);
