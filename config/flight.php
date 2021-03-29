@@ -1,12 +1,12 @@
 <?php
 
-Flight::set('flight.views.path', __DIR__ . '/../views');
-Flight::set('cache.path', __DIR__ . '/../../storage/cache');
+Flight::set('flight.views.path', __DIR__ . '/../app/Views');
+Flight::set('cache.path', __DIR__ . '/../storage/cache');
 
 Flight::set('env', $_ENV['ENV']);
 
 if (Flight::get('env') === 'production') {
-	ini_set('error_log', __DIR__ . '/../../storage/logs/' . date('Y-m-d') . '.txt');
+	ini_set('error_log', __DIR__ . '/../storage/logs/' . date('Y-m-d') . '.txt');
 	ini_set('display_errors', 0);
 
 	Flight::set('log_errors', true);
