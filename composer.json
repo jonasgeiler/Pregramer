@@ -8,6 +8,11 @@
             "homepage": "https://skayo.dev"
         }
     ],
+    "autoload": {
+        "psr-4": {
+          "Pregramer\\": "app/"
+        }
+    },
     "require": {
         "mikecao/flight": "^1.3",
         "raiym/instagram-php-scraper": "^0.11",

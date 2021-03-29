@@ -184,7 +184,6 @@
 				}
 
 				if (this.value.trim() === '') return;
-				console.log(this.value);
 
 				try {
 					const url = new URL(this.value);

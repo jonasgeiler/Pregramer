@@ -1,7 +1,16 @@
 <?php
 
+namespace Pregramer\Controllers;
+
+use Flight;
+
 class Privacy {
-    public static function index() {
-        Flight::render('privacy');
-    }
+
+	/**
+	 * @return void
+	 */
+	public static function index() {
+		Flight::render('privacy');
+	}
+
 }
