@@ -15,14 +15,18 @@ class Post {
 
 	/**
 	 * @param string $shortCode
+	 *
 	 * @return void
 	 */
-	public static function show($shortCode) {
-		Flight::register('cache', Psr16Adapter::class, ['Files', new ConfigurationOption([
-			'itemDetailedDate' => true,
-			'path' => Flight::get('cache.path'),
-			'defaultTtl' => Constants::EXPIRE_CREDENTIALS,
-		])]);
+	public static function show(string $shortCode): void {
+		Flight::register('cache', Psr16Adapter::class, [
+			'Files',
+			new ConfigurationOption([
+				'itemDetailedDate' => true,
+				'path'             => Flight::get('cache.path'),
+				'defaultTtl'       => Constants::EXPIRE_CREDENTIALS,
+			]),
+		]);
 
 		$mediaUrl = "https://www.instagram.com/p/$shortCode/";
 

@@ -3,7 +3,6 @@
 namespace App\Helpers;
 
 use Flight;
-use JetBrains\PhpStorm\Pure;
 
 class Functions {
 
@@ -68,7 +67,7 @@ class Functions {
 	 *
 	 * @return string
 	 */
-	#[Pure] public static function truncateStr (string $string, $length = 100) {
+	public static function truncateStr (string $string, $length = 100) {
 		if (strlen($string) > $length) {
 			$string .= ' ';
 			$string = substr($string, 0, $length);
@@ -87,7 +86,7 @@ class Functions {
 	 *
 	 * @return string
 	 */
-	#[Pure] public static function formatCount (float $num, $precision = 1): string {
+	public static function formatCount (float $num, $precision = 1): string {
 		$absNum = abs($num);
 
 		if ($absNum < 10000) {
