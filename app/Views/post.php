@@ -79,8 +79,7 @@
 			window.location.href = '<?= $url ?>';
 		</script>
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css" media="print" onload="this.media='all'" />
-		<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css"></noscript>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css" />
 		<style type="text/css">
 			body {
 				display: flex;
