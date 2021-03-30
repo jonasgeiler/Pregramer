@@ -2,7 +2,6 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1" />
 
 		<!-- Meta tags and links taken from Instagram... -->
@@ -80,7 +79,8 @@
 			window.location.href = '<?= $url ?>';
 		</script>
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css" media="print" onload="this.media='all'" />
+		<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css"></noscript>
 		<style type="text/css">
 			body {
 				display: flex;

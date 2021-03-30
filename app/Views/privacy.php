@@ -30,7 +30,8 @@
 
 		<script async defer data-domain="pregramer.link" src="https://analytics.skayo.dev/js/plausible.js"></script>
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css" media="print" onload="this.media='all'" />
+		<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css"></noscript>
 	</head>
 	<body>
 		<main>
