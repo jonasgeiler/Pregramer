@@ -82,10 +82,10 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css" />
 		<style type="text/css">
 			body {
-				display: flex;
-				flex-direction: column;
+				display:         flex;
+				flex-direction:  column;
 				justify-content: center;
-				align-items: center;
+				align-items:     center;
 			}
 
 			.header {
@@ -94,9 +94,9 @@
 
 			.instagram-media {
 				max-width: 540px;
-				width: 99.375%;
-				width: -webkit-calc(100% - 2px);
-				width: calc(100% - 2px);
+				width:     99.375%;
+				width:     -webkit-calc(100% - 2px);
+				width:     calc(100% - 2px);
 			}
 		</style>
 	</head>

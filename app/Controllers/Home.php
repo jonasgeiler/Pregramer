@@ -8,8 +8,9 @@ class Home {
 
 	/**
 	 * @return void
+	 * @throws \Exception
 	 */
-	public static function index() {
+	public static function index (): void {
 		HelperFunctions::renderWithLastModified('home');
 	}
 

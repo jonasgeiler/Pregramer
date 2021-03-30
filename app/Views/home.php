@@ -38,44 +38,44 @@
 			}
 
 			.title {
-				font-weight: bolder;
-				margin-top: 1rem;
+				font-weight:   bolder;
+				margin-top:    1rem;
 				margin-bottom: 3rem;
 			}
 
 			.left-col {
-				display: flex;
+				display:        flex;
 				flex-direction: column;
-				margin-bottom: 3rem;
+				margin-bottom:  3rem;
 			}
 
 			.right-col {
-				display: flex;
+				display:        flex;
 				flex-direction: column;
 			}
 
 			#result {
-				margin-top: 6px;
-				display: flex;
+				margin-top:     6px;
+				display:        flex;
 				flex-direction: column;
 			}
 
 			#result-arrow {
-				text-align: center;
+				text-align:     center;
 				padding-bottom: 0.5rem;
-				font-size: 2.2em;
+				font-size:      2.2em;
 			}
 
 			#copy-button {
-				float: right;
+				float:    right;
 				position: relative;
 				overflow: visible;
 			}
 
 			#copy-button-feedback {
-				position: absolute;
-				left: -2rem;
-				display: inline-block;
+				position:  absolute;
+				left:      -2rem;
+				display:   inline-block;
 				transform: scale(1.3);
 			}
 
@@ -93,26 +93,26 @@
 				}
 
 				main {
-					display: flex;
-					flex-direction: row;
+					display:         flex;
+					flex-direction:  row;
 					justify-content: center;
-					align-items: center;
+					align-items:     center;
 				}
 
 				.left-col {
-					width: 50%;
-					min-height: 100vh;
-					margin-right: 2rem;
-					margin-bottom: 0;
+					width:           50%;
+					min-height:      100vh;
+					margin-right:    2rem;
+					margin-bottom:   0;
 					justify-content: center;
 				}
 
 				.right-col {
-					width: 50%;
-					min-height: 100vh;
-					margin-left: 2rem;
+					width:           50%;
+					min-height:      100vh;
+					margin-left:     2rem;
 					justify-content: center;
-					align-items: center;
+					align-items:     center;
 				}
 
 				footer {
@@ -145,20 +145,26 @@
 			<div class="right-col">
 				<div>
 					<p>Before... &#x1F928;</p>
-					<blockquote class="twitter-tweet" data-dnt="true"><p lang="und" dir="ltr"><a href="https://t.co/cyRUfgo1Sr">https://t.co/cyRUfgo1Sr</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1375037477522702336?ref_src=twsrc%5Etfw">March 25, 2021</a></blockquote>
+					<blockquote class="twitter-tweet" data-dnt="true">
+						<p lang="und" dir="ltr"><a href="https://t.co/cyRUfgo1Sr">https://t.co/cyRUfgo1Sr</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_)
+						<a href="https://twitter.com/Skayo_/status/1375037477522702336?ref_src=twsrc%5Etfw">March 25, 2021</a>
+					</blockquote>
 				</div>
 
 				<div>
 					<p style="margin-top: 2rem;">After... &#x1F60D;</p>
-					<blockquote class="twitter-tweet" data-dnt="true"><p lang="und" dir="ltr"><a href="https://t.co/Y8xLp6XgJ1">https://t.co/Y8xLp6XgJ1</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_) <a href="https://twitter.com/Skayo_/status/1375211692171350020?ref_src=twsrc%5Etfw">March 25, 2021</a></blockquote>
+					<blockquote class="twitter-tweet" data-dnt="true">
+						<p lang="und" dir="ltr"><a href="https://t.co/Y8xLp6XgJ1">https://t.co/Y8xLp6XgJ1</a></p>&mdash; 𝙎𝙆𝘼𝙔𝙊 🌾 (@Skayo_)
+						<a href="https://twitter.com/Skayo_/status/1375211692171350020?ref_src=twsrc%5Etfw">March 25, 2021</a>
+					</blockquote>
 				</div>
 			</div>
 		</main>
 
 		<footer class="footer">
 			<span>Made with &#x2764; by <a href="https://skayo.dev" rel="noopener" target="_blank">Skayo</a>
-			&bull;
-			<a href="/privacy">Privacy Policy</a>
+				&bull;
+				<a href="/privacy">Privacy Policy</a>
 		</footer>
 
 		<script type="text/javascript">
@@ -205,66 +211,72 @@
 
 			copyButton.addEventListener('click', function () {
 				clipboardCopy(result)
-					.then(() => { copyButtonFeedback.textContent = '✔' })
-					.catch(() => { copyButtonFeedback.textContent = '❌' })
-					.then(() => setTimeout(() => { copyButtonFeedback.textContent = '' }, 1000))
+					.then(() => {
+						copyButtonFeedback.textContent = '✔';
+					})
+					.catch(() => {
+						copyButtonFeedback.textContent = '❌';
+					})
+					.then(() => setTimeout(() => {
+						copyButtonFeedback.textContent = '';
+					}, 1000));
 			});
 
-			function makeError () {
-				return new DOMException('The request is not allowed', 'NotAllowedError')
+			function makeError() {
+				return new DOMException('The request is not allowed', 'NotAllowedError');
 			}
 
-			async function copyClipboardApi (text) {
+			async function copyClipboardApi(text) {
 				// Use the Async Clipboard API when available. Requires a secure browsing
 				// context (i.e. HTTPS)
 				if (!navigator.clipboard) {
-					throw makeError()
+					throw makeError();
 				}
-				return navigator.clipboard.writeText(text)
+				return navigator.clipboard.writeText(text);
 			}
 
-			async function copyExecCommand (text) {
+			async function copyExecCommand(text) {
 				// Put the text to copy into a <span>
-				const span = document.createElement('span')
-				span.textContent = text
+				const span = document.createElement('span');
+				span.textContent = text;
 
 				// Preserve consecutive spaces and newlines
-				span.style.whiteSpace = 'pre'
-				span.style.webkitUserSelect = 'auto'
-				span.style.userSelect = 'all'
+				span.style.whiteSpace = 'pre';
+				span.style.webkitUserSelect = 'auto';
+				span.style.userSelect = 'all';
 
 				// Add the <span> to the page
-				document.body.appendChild(span)
+				document.body.appendChild(span);
 
 				// Make a selection object representing the range of text selected by the user
-				const selection = window.getSelection()
-				const range = window.document.createRange()
-				selection.removeAllRanges()
-				range.selectNode(span)
-				selection.addRange(range)
+				const selection = window.getSelection();
+				const range = window.document.createRange();
+				selection.removeAllRanges();
+				range.selectNode(span);
+				selection.addRange(range);
 
 				// Copy text to the clipboard
-				let success = false
+				let success = false;
 				try {
-					success = window.document.execCommand('copy')
+					success = window.document.execCommand('copy');
 				} finally {
 					// Cleanup
-					selection.removeAllRanges()
-					window.document.body.removeChild(span)
+					selection.removeAllRanges();
+					window.document.body.removeChild(span);
 				}
 
-				if (!success) throw makeError()
+				if (!success) throw makeError();
 			}
 
-			async function clipboardCopy (text) {
+			async function clipboardCopy(text) {
 				try {
-					await copyClipboardApi(text)
+					await copyClipboardApi(text);
 				} catch (err) {
 					// ...Otherwise, use document.execCommand() fallback
 					try {
-						await copyExecCommand(text)
+						await copyExecCommand(text);
 					} catch (err2) {
-						throw (err2 || err || makeError())
+						throw (err2 || err || makeError());
 					}
 				}
 			}

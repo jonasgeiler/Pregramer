@@ -17,13 +17,13 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
 		<style type="text/css">
 			body {
-				height: 100vh;
-				margin-top: 0;
-				margin-bottom: 0;
-				display: flex;
-				flex-direction: column;
+				height:          100vh;
+				margin-top:      0;
+				margin-bottom:   0;
+				display:         flex;
+				flex-direction:  column;
 				justify-content: center;
-				align-items: center;
+				align-items:     center;
 			}
 
 			.code {
@@ -31,7 +31,7 @@
 			}
 
 			.message {
-				color: var(--text-muted);
+				color:      var(--text-muted);
 				text-align: center;
 			}
 
