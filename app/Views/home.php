@@ -29,6 +29,7 @@
 		<meta name="twitter:image" content="https://pregramer.link/img/social-preview.png" />
 
 		<script async defer data-domain="pregramer.link" src="https://analytics.skayo.dev/js/plausible.js"></script>
+		<script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
 		<style type="text/css">
@@ -155,12 +156,11 @@
 		</main>
 
 		<footer class="footer">
-			<span>Made with &#x2764; by <a href="https://skayo.dev" target="_blank">Skayo</a>
+			<span>Made with &#x2764; by <a href="https://skayo.dev" rel="noopener" target="_blank">Skayo</a>
 			&bull;
 			<a href="/privacy">Privacy Policy</a>
 		</footer>
 
-		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 		<script type="text/javascript">
 			const inputLink = document.getElementById('input-link');
 

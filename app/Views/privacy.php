@@ -79,7 +79,7 @@
 			<p>For any questions or concerns regarding your privacy, you may contact us using the following details: </p>
 			<p>
 				<b>Skayo<b><br />
-				<a href="mailto:hello@pregramer.link">hello@pregramer.link</a>
+				<a href="mailto:hello@pregramer.link" rel="noopener" target="_blank">hello@pregramer.link</a>
 			</p>
 		</main>
 

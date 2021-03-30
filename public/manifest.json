@@ -4,6 +4,7 @@
 	"description": "Beautiful Social Media Share Previews for your Instagram Posts",
 	"theme_color": "#ffffff",
 	"background_color": "#ffffff",
+	"start_url": "/",
 	"display": "standalone",
 	"icons": [
 		{
