@@ -31,7 +31,7 @@
 		<script async defer data-domain="pregramer.link" src="https://analytics.skayo.dev/js/plausible.js"></script>
 		<script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css" />
 		<style type="text/css">
 			.branding {
 				margin-bottom: 0;

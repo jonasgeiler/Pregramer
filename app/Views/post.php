@@ -80,7 +80,7 @@
 			window.location.href = '<?= $url ?>';
 		</script>
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
 		<style type="text/css">
 			body {
 				display: flex;
