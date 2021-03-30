@@ -80,17 +80,17 @@ class Error {
 	private static function getErrorPage($title, $code, $message, $error = null) {
 		ob_start();
 
-		Flight::view()->set('title', $title);
-		Flight::view()->set('activeSite', '');
-		Flight::view()->set('activePage', '');
-		Flight::view()->set('code', $code);
-		Flight::view()->set('message', $message);
+		$data = [];
+
+		$data['title'] = $title;
+		$data['code'] = $code;
+		$data['message'] = $message;
 
 		if ($error && Flight::get('env') !== 'production') {
-			Flight::view()->set('error', $error);
+			$data['error'] = $error;
 		}
 
-		Flight::render('_error');
+		Flight::render('_error', $data);
 
 		return ob_get_clean();
 	}
