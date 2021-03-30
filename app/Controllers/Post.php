@@ -64,7 +64,9 @@ class Post {
 		$data['title'] = "Instagram post by $titleName";
 
 		$descriptionName = ($media['owner']['fullName'] ? "{$media['owner']['fullName']} (@{$media['owner']['username']})" : "@{$media['owner']['username']}");
-		$data['description'] = "{$media['likesCount']} Likes, {$media['commentsCount']} Comments - $descriptionName on Instagram";
+		$likesCount = HelperFunctions::formatCount($media['likesCount']);
+		$commentsCount = HelperFunctions::formatCount($media['commentsCount']);
+		$data['description'] = "$likesCount Likes, $commentsCount Comments - $descriptionName on Instagram";
 
 		if ($media['caption']) {
 			$titleCaption = HelperFunctions::truncateStr($media['caption'], Constants::TITLE_MAX_LENGTH - strlen($data['title']));

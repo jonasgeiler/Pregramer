@@ -62,7 +62,6 @@ class Functions {
 	 *
 	 * @param string $string
 	 * @param int $length
-	 * @param string $etc The string to append when truncating
 	 * @return string
 	 */
 	public static function truncateStr($string, $length = 100) {
@@ -74,6 +73,33 @@ class Functions {
 		}
 
 		return $string;
+	}
+
+	/**
+	 * Formats a number to the short format (ex. 1000 -> 1k)
+	 *
+	 * @param float $num
+	 * @param int $precision
+	 * @return string
+	 */
+	public static function formatCount($num, $precision = 1) {
+		$absNum = abs($num);
+
+		if ($absNum < 10000) {
+			return number_format((string)round($num, $precision));
+		}
+
+		$groups = ['k', 'm', 'b'];
+
+		foreach ($groups as $i => $group) {
+			$div = 1000 ** ($i + 1);
+
+			if ($absNum < $div * 1000) {
+				return round($num / $div, $precision) . $group;
+			}
+		}
+
+		return '999q+';
 	}
 
 }
