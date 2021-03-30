@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Helpers\Constants;
+use App\Helpers\Functions as HelperFunctions;
 use Flight;
 use GuzzleHttp\Client;
 use InstagramScraper\Exception\InstagramNotFoundException;
@@ -18,13 +19,14 @@ class Post {
 	 */
 	public static function show($shortCode) {
 		Flight::register('cache', Psr16Adapter::class, ['Files', new ConfigurationOption([
+			'itemDetailedDate' => true,
 			'path' => Flight::get('cache.path'),
 			'defaultTtl' => Constants::EXPIRE_CREDENTIALS,
 		])]);
 
 		$mediaUrl = "https://www.instagram.com/p/$shortCode/";
 
-		if (static::isHuman()) {
+		if (HelperFunctions::isHuman()) {
 			Flight::redirect($mediaUrl, 301);
 
 			return;
@@ -53,43 +55,27 @@ class Post {
 			Flight::cache()->set($cacheKey, $media, Constants::EXPIRE_MEDIA);
 		}
 
-		Flight::view()->set('media', $media);
-		Flight::view()->set('url', $mediaUrl);
+		$data = [];
+
+		$data['media'] = $media;
+		$data['url'] = $mediaUrl;
 
 		$titleName = $media['owner']['fullName'] ?: "@{$media['owner']['username']}";
-		$descriptionName = ($media['owner']['fullName'] ? "{$media['owner']['fullName']} (@{$media['owner']['username']})" : "@{$media['owner']['username']}");
+		$data['title'] = "Instagram post by $titleName";
 
-		$title = $media['caption'] ? "$titleName on Instagram: “{$media['caption']}”" : "Instagram post by $titleName";
-		$description = "{$media['likesCount']} Likes, {$media['commentsCount']} Comments - $descriptionName on Instagram";
+		$descriptionName = ($media['owner']['fullName'] ? "{$media['owner']['fullName']} (@{$media['owner']['username']})" : "@{$media['owner']['username']}");
+		$data['description'] = "{$media['likesCount']} Likes, {$media['commentsCount']} Comments - $descriptionName on Instagram";
 
 		if ($media['caption']) {
-			$description .= ": “{$media['caption']}”";
+			$titleCaption = HelperFunctions::truncateStr($media['caption'], Constants::TITLE_MAX_LENGTH - strlen($data['title']));
+			$data['title'] = "$titleName on Instagram: “{$titleCaption}”";
+
+			$descriptionCaption = HelperFunctions::truncateStr($media['caption'], Constants::DESCRIPTION_MAX_LENGTH - strlen($data['description']));
+			$data['description'] .= ": “{$descriptionCaption}”";
 		}
 
-		Flight::view()->set('title', $title);
-		Flight::view()->set('description', $description);
-
-		Flight::render('post');
-	}
-
-	/**
-	 * @return bool
-	 */
-	private static function isHuman() {
-		$userAgent = $_SERVER['HTTP_USER_AGENT'];
-		$cacheKey = md5($userAgent);
-		$isHuman = Flight::cache()->get($cacheKey);
-
-		if ($isHuman !== null) {
-			return $isHuman;
-		}
-
-		$browserInfo = get_browser($userAgent, true);
-		$isHuman = in_array($browserInfo['browser'], Constants::BROWSERS);
-
-		Flight::cache()->set($cacheKey, $isHuman, Constants::EXPIRE_HUMAN_CHECK);
-
-		return $isHuman;
+		Flight::lastModified(HelperFunctions::getCacheLastModified($cacheKey));
+		Flight::render('post', $data);
 	}
 
 }

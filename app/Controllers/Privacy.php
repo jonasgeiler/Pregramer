@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use Flight;
+use App\Helpers\Functions as HelperFunctions;
 
 class Privacy {
 
@@ -10,8 +10,7 @@ class Privacy {
 	 * @return void
 	 */
 	public static function index() {
-		Flight::lastModified(filemtime(Flight::view()->getTemplate('privacy')));
-		Flight::render('privacy');
+		HelperFunctions::renderWithLastModified('privacy');
 	}
 
 }

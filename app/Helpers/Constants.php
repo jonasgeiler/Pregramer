@@ -10,6 +10,10 @@ class Constants {
 
 	public const EXPIRE_HUMAN_CHECK = 315360000; // 10 years
 
+	public const TITLE_MAX_LENGTH = 70;
+
+	public const DESCRIPTION_MAX_LENGTH = 195;
+
 	public const BROWSERS = [
 		'115 Browser',
 		'1stBrowser',
