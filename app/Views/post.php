@@ -75,7 +75,7 @@
 			<?php endif; ?>
 		<?php endif; ?>
 
-
+		<script async defer src="https://www.instagram.com/embed.js"></script>
 		<script type="text/javascript">
 			window.location.href = '<?= $url ?>';
 		</script>
@@ -106,8 +106,7 @@
 			<h1>&#x1F5BC; Pregramer</h1>
 			<p>Redirecting you to Instagram...</p>
 		</div>
-		
+
 		<blockquote class="instagram-media" data-instgrm-permalink="<?= $url ?>" data-instgrm-version="13"></blockquote>
-		<script async src="https://www.instagram.com/embed.js"></script>
 	</body>
 </html>
