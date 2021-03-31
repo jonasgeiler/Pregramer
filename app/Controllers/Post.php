@@ -1,62 +1,61 @@
 <?php
 
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Helpers\Constants;
-use App\Helpers\Functions as HelperFunctions;
-use Flight;
+use Base;
+use Cache;
 use GuzzleHttp\Client;
+use Helpers\Audit;
+use Helpers\Format;
 use InstagramScraper\Exception\InstagramNotFoundException;
 use InstagramScraper\Instagram;
-use Phpfastcache\Config\ConfigurationOption;
-use Phpfastcache\Helper\Psr16Adapter;
+use View;
 
 class Post {
 
+	private const SESSION_TTL = 4320000; // 50 days
+
+	private const TITLE_MAX_LENGTH = 70;
+	private const DESCRIPTION_MAX_LENGTH = 195;
+
 	/**
-	 * @param string $shortCode
+	 * @param Base  $f3
+	 * @param array $params
 	 *
 	 * @return void
+	 * @throws \InstagramScraper\Exception\InstagramAuthException
+	 * @throws \InstagramScraper\Exception\InstagramChallengeRecaptchaException
+	 * @throws \InstagramScraper\Exception\InstagramChallengeSubmitPhoneNumberException
+	 * @throws \InstagramScraper\Exception\InstagramException
+	 * @throws \Psr\SimpleCache\InvalidArgumentException
 	 */
-	public static function show(string $shortCode): void {
-		Flight::register('cache', Psr16Adapter::class, [
-			'Files',
-			new ConfigurationOption([
-				'itemDetailedDate' => true,
-				'path'             => Flight::get('cache.path'),
-				'defaultTtl'       => Constants::EXPIRE_CREDENTIALS,
-			]),
-		]);
+	public static function show (Base $f3, array $params): void {
+		$cache = Cache::instance();
 
+		$shortCode = $params['shortcode'];
 		$mediaUrl = "https://www.instagram.com/p/$shortCode/";
 
-		if (HelperFunctions::isHuman()) {
-			Flight::redirect($mediaUrl, 301);
+		if (Audit::isHuman()) {
+			$f3->reroute($mediaUrl, false);
 
 			return;
 		}
 
-		$cacheKey = md5($shortCode);
-		$media = Flight::cache()->get($cacheKey);
+		$instagram = Instagram::withCredentials(
+			new Client(),
+			$_ENV['INSTAGRAM_USERNAME'],
+			$_ENV['INSTAGRAM_PASSWORD'],
+			$cache
+		);
+		$instagram->login();
+		$instagram->saveSession(static::SESSION_TTL);
 
-		if (!$media) {
-			$instagram = Instagram::withCredentials(
-				new Client(),
-				$_ENV['INSTAGRAM_USERNAME'],
-				$_ENV['INSTAGRAM_PASSWORD'],
-				Flight::cache()
-			);
-			$instagram->login();
+		try {
+			$media = $instagram->getMediaByUrl($mediaUrl);
+		} catch (InstagramNotFoundException $e) {
+			$f3->error(404, 'Post does not exist or account is private');
 
-			try {
-				$media = $instagram->getMediaByUrl($mediaUrl);
-			} catch (InstagramNotFoundException $e) {
-				Flight::notFound('Post does not exist or account is private');
-
-				return;
-			}
-
-			Flight::cache()->set($cacheKey, $media, Constants::EXPIRE_MEDIA);
+			return;
 		}
 
 		$data = [];
@@ -67,21 +66,20 @@ class Post {
 		$titleName = $media['owner']['fullName'] ?: "@{$media['owner']['username']}";
 		$data['title'] = "Instagram post by $titleName";
 
-		$descriptionName = ($media['owner']['fullName'] ? "{$media['owner']['fullName']} (@{$media['owner']['username']})" : "@{$media['owner']['username']}");
-		$likesCount = HelperFunctions::formatCount($media['likesCount']);
-		$commentsCount = HelperFunctions::formatCount($media['commentsCount']);
+		$descriptionName = ( $media['owner']['fullName'] ? "{$media['owner']['fullName']} (@{$media['owner']['username']})" : "@{$media['owner']['username']}" );
+		$likesCount = Format::count($media['likesCount']);
+		$commentsCount = Format::count($media['commentsCount']);
 		$data['description'] = "$likesCount Likes, $commentsCount Comments - $descriptionName on Instagram";
 
 		if ($media['caption']) {
-			$titleCaption = HelperFunctions::truncateStr($media['caption'], Constants::TITLE_MAX_LENGTH - strlen($data['title']));
+			$titleCaption = Format::truncate($media['caption'], static::TITLE_MAX_LENGTH - strlen($data['title']));
 			$data['title'] = "$titleName on Instagram: “{$titleCaption}”";
 
-			$descriptionCaption = HelperFunctions::truncateStr($media['caption'], Constants::DESCRIPTION_MAX_LENGTH - strlen($data['description']));
+			$descriptionCaption = Format::truncate($media['caption'], static::DESCRIPTION_MAX_LENGTH - strlen($data['description']));
 			$data['description'] .= ": “{$descriptionCaption}”";
 		}
 
-		Flight::lastModified(HelperFunctions::getCacheLastModified($cacheKey));
-		Flight::render('post', $data);
+		echo View::instance()->render('post.php', 'text/html', $data);
 	}
 
 }

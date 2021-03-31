@@ -1,20 +1,37 @@
 <?php
 
-namespace App\Helpers;
+namespace Helpers;
 
-class Constants {
+use Base;
+use Cache;
 
-	public const EXPIRE_CREDENTIALS = 4320000; // 50 days
+class Audit {
 
-	public const EXPIRE_MEDIA = 604800; // 1 week
+	private const IS_HUMAN_TTL = 315360000; // 10 years (forever)
 
-	public const EXPIRE_HUMAN_CHECK = 315360000; // 10 years
+	/**
+	 * Checks User Agent and returns true if user is human
+	 *
+	 * @return bool If the user is human
+	 */
+	public static function isHuman (): bool {
+		$f3 = Base::instance();
+		$cache = Cache::instance();
 
-	public const TITLE_MAX_LENGTH = 70;
+		$cacheKey = $f3->hash($f3->AGENT) . '.human';
+		if ($cache->exists($cacheKey, $isHuman)) {
+			return $isHuman;
+		}
 
-	public const DESCRIPTION_MAX_LENGTH = 195;
+		$browserInfo = get_browser($f3->AGENT, true);
+		$isHuman = in_array($browserInfo['browser'], static::BROWSERS, true);
 
-	public const BROWSERS = [
+		$cache->set($cacheKey, $isHuman, static::IS_HUMAN_TTL);
+
+		return $isHuman;
+	}
+
+	private const BROWSERS = [
 		'115 Browser',
 		'1stBrowser',
 		'2345 Browser',

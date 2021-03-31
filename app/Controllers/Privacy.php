@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Helpers\Functions as HelperFunctions;
+use View;
 
 class Privacy {
 
 	/**
 	 * @return void
-	 * @throws \Exception
 	 */
-	public static function index (): void {
-		HelperFunctions::renderWithLastModified('privacy');
+	public function index (): void {
+		echo View::instance()->render('privacy.php');
 	}
 
 }

@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Controllers;
+namespace Controllers;
 
-use App\Helpers\Functions as HelperFunctions;
+use View;
 
 class Home {
 
 	/**
 	 * @return void
-	 * @throws \Exception
 	 */
-	public static function index (): void {
-		HelperFunctions::renderWithLastModified('home');
+	public function index (): void {
+		echo View::instance()->render('home.php');
 	}
 
 }

@@ -1,15 +1,30 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+define('ROOT', dirname(__DIR__));
 
-use Dotenv\Dotenv;
+/*
+|--------------------------------------------------------------------------
+| Create The Application
+|--------------------------------------------------------------------------
+|
+| First we need to get an application instance. This creates an instance
+| of the application / container and bootstraps the application so it
+| is ready to receive HTTP requests from the environment.
+|
+*/
 
-$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
+$f3 = require ROOT . '/config/bootstrap.php';
 
-require __DIR__ . '/../config/flight.php';
-require __DIR__ . '/../config/routes.php';
+/*
+|--------------------------------------------------------------------------
+| Run The Application
+|--------------------------------------------------------------------------
+|
+| Once we have the application, we can handle the incoming request
+| through the kernel, and send the associated response back to
+| the client's browser allowing them to enjoy the creative
+| and wonderful application we have prepared for them.
+|
+*/
 
-Flight::path(__DIR__ . '/../app/controllers');
-
-Flight::start();
+$f3->run();
