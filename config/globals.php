@@ -133,7 +133,7 @@ $f3->PACKAGE = null;
 
 /**
  * Simple Error Handler.
- * Uncomment the last line if you have a template for the error page.
+ * Feel free to customize this however you want!
  *
  * @param \Base $f3
  */
