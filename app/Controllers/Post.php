@@ -33,7 +33,7 @@ class Post {
 		$shortCode = $params['shortcode'];
 
 		if (!preg_match('/[A-Za-z0-9_-]+/', $shortCode)) {
-			$f3->error(400, 'Invalid short code');
+			$f3->error(400, "Invalid short code: '$shortCode'");
 		}
 
 		$mediaUrl = "https://www.instagram.com/p/$shortCode/";
@@ -56,7 +56,7 @@ class Post {
 		try {
 			$media = $instagram->getMediaByUrl($mediaUrl);
 		} catch (InstagramNotFoundException $e) {
-			$f3->error(404, 'Post does not exist or account is private');
+			$f3->error(404, "Post does not exist or account is private: '$shortCode'");
 
 			return;
 		}
