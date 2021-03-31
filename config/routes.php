@@ -25,6 +25,6 @@ $f3 = \Base::instance();
 |
 */
 
-$f3->route('GET /','Controllers\Home->index'); // Home, expire in a day
-$f3->route('GET /privacy','Controllers\Privacy->index', 86400); // Privacy Policy, expire in a day
-$f3->route('GET /@shortcode','Controllers\Post->show', 604800); // Show Instagram Post, expire in a week
+$f3->route('GET /', 'Controllers\Home->index'); // Home, expire in a day
+$f3->route('GET /privacy', 'Controllers\Privacy->index', 86400); // Privacy Policy, expire in a day
+$f3->route('GET /@shortcode', 'Controllers\Post->show', 604800); // Show Instagram Post, expire in a week

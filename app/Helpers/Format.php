@@ -41,7 +41,7 @@ class Format {
 		$groups = [ 'k', 'm', 'b' ];
 
 		foreach ($groups as $i => $group) {
-			$div = 1000 ** ( $i + 1 );
+			$div = 1000 ** ($i + 1);
 
 			if ($absNum < $div * 1000) {
 				return round($num / $div, $precision) . $group;

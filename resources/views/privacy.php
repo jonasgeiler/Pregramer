@@ -104,8 +104,8 @@
 			</p>
 		</main>
 
-		<footer class="footer">
-			<a href="/">Back to Home</a>
+		<footer>
+			<a href="/">Back to Homepage</a>
 		</footer>
 	</body>
 </html>

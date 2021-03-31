@@ -30,13 +30,16 @@ class Post {
 	 * @throws \Psr\SimpleCache\InvalidArgumentException
 	 */
 	public static function show (Base $f3, array $params): void {
-		$cache = Cache::instance();
-
 		$shortCode = $params['shortcode'];
+
+		if (!preg_match('/[A-Za-z0-9_-]+/', $shortCode)) {
+			$f3->error(400, 'Invalid short code');
+		}
+
 		$mediaUrl = "https://www.instagram.com/p/$shortCode/";
 
 		if (Audit::isHuman()) {
-			$f3->reroute($mediaUrl, false);
+			$f3->reroute($mediaUrl, true);
 
 			return;
 		}
@@ -45,7 +48,7 @@ class Post {
 			new Client(),
 			$_ENV['INSTAGRAM_USERNAME'],
 			$_ENV['INSTAGRAM_PASSWORD'],
-			$cache
+			Cache::instance()
 		);
 		$instagram->login();
 		$instagram->saveSession(static::SESSION_TTL);
@@ -66,7 +69,7 @@ class Post {
 		$titleName = $media['owner']['fullName'] ?: "@{$media['owner']['username']}";
 		$data['title'] = "Instagram post by $titleName";
 
-		$descriptionName = ( $media['owner']['fullName'] ? "{$media['owner']['fullName']} (@{$media['owner']['username']})" : "@{$media['owner']['username']}" );
+		$descriptionName = ($media['owner']['fullName'] ? "{$media['owner']['fullName']} (@{$media['owner']['username']})" : "@{$media['owner']['username']}");
 		$likesCount = Format::count($media['likesCount']);
 		$commentsCount = Format::count($media['commentsCount']);
 		$data['description'] = "$likesCount Likes, $commentsCount Comments - $descriptionName on Instagram";
