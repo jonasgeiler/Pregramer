@@ -4,4 +4,4 @@ Little tool I wrote for improving the social media preview (OpenGraph / Twitter)
 
 [OPEN PREGRAMER](https://pregramer.link)
 
-![Banner](assets/social-preview.png)
+![Banner](public/img/social-preview.png)
