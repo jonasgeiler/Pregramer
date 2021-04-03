@@ -2,6 +2,7 @@
 lib
 .env
 
+assets
 storage/cache/*
 storage/logs/*
 storage/tmp/*
