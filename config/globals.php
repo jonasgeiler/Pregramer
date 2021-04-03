@@ -64,7 +64,7 @@ if (!empty($_ENV['APP_SEED'])) {
  * 2: logs classes & functions as well.
  * 3: logs detailed infos of the objects as well.
  */
-$f3->DEBUG = $f3->ENV === 'production' ? 0 : 3;
+$f3->DEBUG = $f3->PRODUCTION ? 0 : 3;
 
 
 /*

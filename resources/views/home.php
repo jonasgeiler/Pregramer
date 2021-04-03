@@ -162,9 +162,9 @@
 		</main>
 
 		<footer class="footer">
-			<span>Made with &#x2764; by <a href="https://skayo.dev" rel="noopener" target="_blank">Skayo</a>
-				&bull;
-				<a href="/privacy">Privacy Policy</a>
+			Made with &#x2764; by <a href="https://skayo.dev" rel="noopener" target="_blank">Skayo</a>
+			&bull;
+			<a href="/privacy">Privacy Policy</a>
 		</footer>
 
 		<script type="text/javascript">
